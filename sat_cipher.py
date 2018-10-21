@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 from argparse import ArgumentParser
 
 def encrypt(key, input):
@@ -7,7 +6,6 @@ def encrypt(key, input):
 		n = len(key) - len(input) % len(key)
 		for i in range(n):
 			input += " "
-
 	h = []
 
 	for a in range(len(key)):
@@ -56,15 +54,15 @@ def main():
                                 | |                    
                                 |_|                    
 	"""
-	argp = ArgumentParser(description="SAT Cipher", usage="./sat_cipher.py [options] [-k key] [-i text]")
+	argp = ArgumentParser(description="SAT Cipher", usage="python sat_cipher.py [options] [-k key] [-i text]")
 	
-	argp.add_argument('-k', dest='key', required=True, help='Key text')
+	argp.add_argument('-k', dest='key', required=True, help='Key')
 	
 	argp.add_argument('-i', dest='input', required=True, help='Input text')
 	
-	argp.add_argument('-e', dest='encrypt', action='store_true', help='Encrypt text with key')
+	argp.add_argument('-e', dest='encrypt', action='store_true', help='Encrypt with key')
 	
-	argp.add_argument('-d', dest='decrypt', action='store_true', help='Decrypt text with key')
+	argp.add_argument('-d', dest='decrypt', action='store_true', help='Decrypt with key')
 	
 	args = argp.parse_args()
 	
